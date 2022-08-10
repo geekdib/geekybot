@@ -1,0 +1,8 @@
+url:http://itdib.com
+name: Ittu AI
+email: dibyapp@crms.app
+gender:female
+botmaster: Mr. Dibyaprakash
+organization: itdib innovations
+version:0.0.1
+

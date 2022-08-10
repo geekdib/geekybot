@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<!-- File: testjp.aiml -->
+<!-- Author: Mr. Dibyaprakash -->
+<!-- Last modified: August 13, 2021 -->
+<!--  -->
+<!-- This AIML file is part of the Ittu 0.0.1 chat bot knowledge base. -->
+<!--  -->
+<!-- The Ittu AI is Copyright &copy; 2017 by itdib innovations -->
+<!--  -->
+<!-- The Ittu AI is released under the terms of the itdib innovations -->
+<!--  -->
+<category><pattern>GREETINGS</pattern>
+<template>????????????????????????</template>
+</category>
+<category><pattern>?????</pattern>
+<template><srai>GREETINGS</srai></template>
+</category>
+</aiml>
