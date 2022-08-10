@@ -24,7 +24,7 @@ public class Chatbot {
 		try {
 
 			String resourcesPath = getResourcesPath();
-			System.out.println(resourcesPath);
+//			System.out.println(resourcesPath);
 			MagicBooleans.trace_mode = TRACE_MODE;
 			Bot bot = new Bot("ittu", resourcesPath);
 			Chat chatSession = new Chat(bot);
@@ -66,7 +66,7 @@ public class Chatbot {
 		File currDir = new File(".");
 		String path = currDir.getAbsolutePath();
 		path = path.substring(0, path.length() - 2);
-		System.out.println(path);
+//		System.out.println(path);
 		String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
 		return resourcesPath;
 	}

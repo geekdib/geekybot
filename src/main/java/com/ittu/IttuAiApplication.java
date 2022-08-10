@@ -6,6 +6,7 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,7 +20,7 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {GroovyTemplateAutoConfiguration.class})
 @EnableWebMvc
 @EnableAsync
 public class IttuAiApplication implements WebMvcConfigurer {
@@ -59,15 +60,14 @@ public class IttuAiApplication implements WebMvcConfigurer {
 
 			while ((speechResult = speech.getResult()) != null) {
 				String voiceCommand = speechResult.getHypothesis();
-				System.out.println("Voice Command is " + voiceCommand);
+				System.err.println("Voice Command is " + voiceCommand);
 					try {
 						String response = chatbot.askIttu(voiceCommand);
-						if(!response.equalsIgnoreCase("")) {
-							textSpeech.speak(response);
-						}else {
-							textSpeech.speak("Hmm");
-						}
-						
+							if(!response.equalsIgnoreCase("")) {
+								textSpeech.speak(response);
+							}else {
+								textSpeech.speak("Hmm");
+							}
 					} catch (IllegalArgumentException e) {
 						e.printStackTrace();
 					} 

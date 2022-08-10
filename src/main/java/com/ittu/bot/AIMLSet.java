@@ -27,7 +27,6 @@ public class AIMLSet extends HashSet<String> {
       if (this.setName.equals(MagicStrings.natural_number_set_name)) {
          this.maxLength = 1;
       }
-
    }
 
    public boolean contains(String s) {
@@ -37,7 +36,8 @@ public class AIMLSet extends HashSet<String> {
             return false;
          } else {
             String query = MagicStrings.set_member_string + this.setName.toUpperCase() + " " + s;
-            String response = Sraix.sraix((Chat)null, query, "false", (String)null, this.host, this.botid, (String)null, "0");
+//            String response = Sraix.sraix((Chat)null, query, "false", (String)null, this.host, this.botid, (String)null, "0");
+            String response = "Sorry, I didn't get that.";
             System.out.println("External " + this.setName + " contains " + s + "? " + response);
             return response.equals("true");
          }

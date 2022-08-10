@@ -28,22 +28,22 @@ import com.ittu.bot.utils.IOUtils;
 public class Main {
    public static void start(String[] args) {
       MagicStrings.root_path = System.getProperty("user.dir");
-      System.out.println("Working Directory = " + MagicStrings.root_path);
+//      System.out.println("Working Directory = " + MagicStrings.root_path);
       AIMLProcessor.extension = new PCAIMLProcessorExtension();
       mainFunction(args);
-      System.err.println("---------");
+//      System.err.println("---------");
    }
 
    public static void mainFunction(String[] args) {
       String botName = "ittu";
       String action = "chat";
-      System.out.println(MagicStrings.programNameVersion);
+//      System.out.println(MagicStrings.programNameVersion);
       String[] arr$ = args;
       int len$ = args.length;
 
       for(int i$ = 0; i$ < len$; ++i$) {
          String s = arr$[i$];
-         System.out.println(s);
+//         System.out.println(s);
          String[] splitArg = s.split("=");
          if (splitArg.length >= 2) {
             String option = splitArg[0];
@@ -64,7 +64,7 @@ public class Main {
          }
       }
 
-      System.out.println("trace mode = " + MagicBooleans.trace_mode);
+//      System.out.println("trace mode = " + MagicBooleans.trace_mode);
       Graphmaster.enableShortCuts = true;
       new Timer();
       Bot bot = new Bot(botName, MagicStrings.root_path, action);
@@ -129,7 +129,7 @@ public class Main {
                testAB(bot);
             } else {
                if (MagicBooleans.trace_mode) {
-                  System.out.println("STATE=" + textLine + ":THAT=" + ((History)chatSession.thatHistory.get(0)).get(0) + ":TOPIC=" + chatSession.predicates.get("topic"));
+//                  System.out.println("STATE=" + textLine + ":THAT=" + ((History)chatSession.thatHistory.get(0)).get(0) + ":TOPIC=" + chatSession.predicates.get("topic"));
                }
 
                String response;
@@ -140,7 +140,7 @@ public class Main {
                   response = response.replace("&gt;", ">");
                }
 
-               System.out.println("Robot: " + response);
+//               System.out.println("Robot: " + response);
             }
          }
       }
@@ -148,20 +148,20 @@ public class Main {
 
    public static void testBotChat() {
       Bot bot = new Bot("alice");
-      System.out.println(bot.brain.upgradeCnt + " brain upgrades");
+//      System.out.println(bot.brain.upgradeCnt + " brain upgrades");
       bot.brain.nodeStats();
       Chat chatSession = new Chat(bot);
       String request = "Hello.  How are you?  What is your name?  Tell me about yourself.";
       String response = chatSession.multisentenceRespond(request);
-      System.out.println("Human: " + request);
-      System.out.println("Robot: " + response);
+//      System.out.println("Human: " + request);
+//      System.out.println("Robot: " + response);
    }
 
    public static void testSuite(Bot bot, String filename) {
       try {
          Dib.passed.readAIMLSet(bot);
          Dib.testSet.readAIMLSet(bot);
-         System.out.println("Passed " + Dib.passed.size() + " samples.");
+//         System.out.println("Passed " + Dib.passed.size() + " samples.");
          String textLine = "";
          Chat chatSession = new Chat(bot);
          FileInputStream fstream = new FileInputStream(filename);
@@ -186,11 +186,11 @@ public class Main {
 
             Category c = new Category(0, bot.preProcessor.normalize(request), "*", "*", MagicStrings.blank_template, MagicStrings.null_aiml_file);
             if (Dib.passed.contains(request)) {
-               System.out.println("--> Already passed " + request);
+//               System.out.println("--> Already passed " + request);
             } else if (!bot.deletedGraph.existsCategory(c) && !Dib.passed.contains(request)) {
                String response = chatSession.multisentenceRespond(request);
-               System.out.println(count + ". Human: " + request);
-               System.out.println(count + ". Robot: " + response);
+//               System.out.println(count + ". Human: " + request);
+//               System.out.println(count + ". Robot: " + response);
                textLine = IOUtils.readInputTextLine();
                Dib.terminalInteractionStep(bot, request, textLine, c);
                ++count;

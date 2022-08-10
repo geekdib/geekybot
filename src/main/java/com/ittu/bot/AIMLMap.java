@@ -40,7 +40,8 @@ public class AIMLMap extends HashMap<String, String> {
          String value;
          if (this.isExternal && MagicBooleans.enable_external_sets) {
             String query = this.mapName.toUpperCase() + " " + key;
-            String response = Sraix.sraix((Chat)null, query, MagicStrings.unknown_map_value, (String)null, this.host, this.botid, (String)null, "0");
+//            String response = Sraix.sraix((Chat)null, query, MagicStrings.unknown_map_value, (String)null, this.host, this.botid, (String)null, "0");
+            String response = "Sorry, I didn't get that.";
             System.out.println("External " + this.mapName + "(" + key + ")=" + response);
             value = response;
          } else {

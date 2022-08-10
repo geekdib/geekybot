@@ -276,7 +276,8 @@ public class AIMLProcessor {
       String limit = getAttributeOrTagValue(node, ps, "limit");
       String defaultResponse = getAttributeOrTagValue(node, ps, "default");
       String result = evalTagContent(node, ps, attributeNames);
-      return Sraix.sraix(ps.chatSession, result, defaultResponse, hint, host, botid, (String)null, limit);
+//      return Sraix.sraix(ps.chatSession, result, defaultResponse, hint, host, botid, (String)null, limit);
+      return "Sorry, I didn't get that.";
    }
 
    private static String map(Node node, ParseState ps) {
